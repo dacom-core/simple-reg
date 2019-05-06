@@ -1,0 +1,19 @@
+{
+  "name": "dacom-back-reg",
+  "version": "1.0.0",
+  "description": "Backend for registrator with email confirmation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "dotenv": "^8.0.0",
+    "eosjs": "^16.0.9",
+    "express": "^4.16.4",
+    "md5": "^2.2.1",
+    "mongodb": "^3.2.3"
+  }
+}
