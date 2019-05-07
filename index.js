@@ -159,7 +159,7 @@ app.get('/confirm', function (req, res) {
 				    var secret2 = item.md5
 
 					    if (secret == secret2){
-					    	if (item.referer == "")
+					    	if ((item.referer == "") || (!item.referer))
 					    		item.referer = process.env.DEFAULT_REF
 					    	
 					    	register(item, res)
