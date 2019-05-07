@@ -192,7 +192,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   
 try{
   
-	if ((req.query.email != "")&&(req.query.active_pub != "")&&(req.query.owner_pub != "")&&(req.query.username != "")){		
+	if ((req.query.email)&&(req.query.active_pub )&&(req.query.owner_pub )&&(req.query.username)){		
   
   	const mongoClient = new MongoClient(process.env.MONGOURI, { useNewUrlParser: true });
 
@@ -282,6 +282,8 @@ try{
 
 	})
 
+	} else {
+		res.send({status: "error", message: "No argument list"})
 	}
 
 } catch (e){
