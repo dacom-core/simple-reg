@@ -235,7 +235,7 @@ try{
 	    }
 	    console.log("on register: ", user)
 
-	    collection.findOne({email: user.email}, (err, item) =>{
+	    collection.findOne({email: user.email, blockchain: process.env.BLOCKCHAIN}, (err, item) =>{
 	    	try{
 			    if (err){
 		    		send_error(err)
@@ -246,7 +246,7 @@ try{
 			    	if (!item){
 			    		console.log("INSIDE2")
 	    				sgMail.send(msg).then(()=>{
-		   
+		   					user.blockchain = process.env.BLOCKCHAIN
 						    collection.insertOne(user, function(err, result){
 						        if(err){ 
 						        	console.log("error1")
