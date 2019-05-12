@@ -146,7 +146,7 @@ app.get('/confirm', function (req, res) {
 
 	    const collection = db.collection("candidates");
 	    	   
-	    collection.findOne({md5: secret ,registered: false}, (err, item) =>{
+	    collection.findOne({md5: secret ,registered: false, blockchain: process.env.BLOCKCHAIN}, (err, item) =>{
 	    	try{
 			    if (err){
 		    		send_error(err)
@@ -329,7 +329,7 @@ try{
 	    const db = client.db()
 	    const collection = db.collection("candidates");
 
-	    collection.findOne({email: email}, (err, item) =>{
+	    collection.findOne({email: email, blockchain: process.env.BLOCKCHAIN}, (err, item) =>{
 	    	try{
 			    if (err){
 		    		res.send({status: 'error', message:err});
@@ -362,6 +362,6 @@ try{
 }})
 
 
-app.listen(5011, function () {
-  console.log('Example app listening on port 5011!');
+app.listen(process.env.PORT, function () {
+  console.log('Example app listening on port: ', process.env.PORT);
 });
